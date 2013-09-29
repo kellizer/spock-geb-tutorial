@@ -1,0 +1,12 @@
+# Spock & Geb Tutorial Samples
+
+This repo contains the following suite of sample tests.
+
+- Simple Lifecycle tests
+- Mocking Object
+- Reading Data from a DB
+- Geb Examples
+
+
+
+This file was modified by IntelliJ IDEA 12.1.4 for binding GitHub repository
