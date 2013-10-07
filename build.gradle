@@ -6,7 +6,7 @@ repositories
         }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.8'
+    gradleVersion = '1.6'
 }
 
 configurations
@@ -14,9 +14,9 @@ configurations
             integrationTest.extendsFrom testCompile
         }
 
-
 dependencies
         {
+            compile "joda-time:joda-time:2+"
             testCompile "junit:junit:4+"
             testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
             testRuntime "com.h2database:h2:1.2.147"

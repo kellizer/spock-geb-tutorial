@@ -47,7 +47,6 @@ public class BankAccount {
 
     /**
      * Returns the current balance of this account.
-     *
      * @return - the current balance
      */
     public double getBalance() {

@@ -4,28 +4,18 @@ import com.spockgeb.tutorial.spock.River
 import spock.lang.Specification
 
 /**
- * Created with IntelliJ IDEA.
- * Date: 29/09/13
- * Time: 12:05
+ * Simple Test Life cycles.
+ * @author Ian Kelly
  */
 class LifecycleTestSpecification extends Specification {
 
     // fields
-    // fixture methods
-    // feature methods
-    // helper methods
+    def thamesRiver = new River("Thames")
 
     /**
-     * This is a feature method
+     * 101 - feature method with a setup/when/then block
      */
-    def "The colour of the Hudson river should be blue"() {
-        def river = new River("Hudson")
-        expect: "Nice when you want to describe the stimulus and the expected result in single block"
-        river.colour == 'Blue'
-    }
-
-
-    def "The chicago river should be green if it is saint patrick's day..."() {
+    def "The chicago river should be green if it is saint patrick's"() {
         setup: "The River runs through chicago"
         def river = new River("Chicago")
         when: "it is saint patrick day"
@@ -34,23 +24,54 @@ class LifecycleTestSpecification extends Specification {
         river.colour == 'Green'
     }
 
-
-    def "The chicago river should be blue when it is not saint patrick's day..."() {
-        when:
+    /**
+     * 102-feature method with a given/when/then block - identical to the 101 test
+     */
+    def "The chicago river should be green if it is saint patrick's day with a given block."() {
+        given: "The River runs through chicago with a given block which is identical to a setup blco"
         def river = new River("Chicago")
-        then:
+        when: "it is saint patrick day"
+        river.setSaintPatrickDay(true)
+        then: "the river should be green"
         river.colour == 'Green'
     }
 
-
-    def "The name should be the same as the defined name"() {
-        given:
-        def river = new River("Thames")
+    /**
+     * 103 - feature method
+     */
+    def "The chicago river should be blue when it is not saint patrick's day."() {
+        setup:
+        def river = new River("Chicago")
         when:
-        river.name = "Danube"
+        river.setSaintPatrickDay(false)
         then:
-        river.name == "Danube"
+        river.colour == 'Blue'
     }
 
+    /**
+     * 104 - Using a specification level field.
+     */
+    def "Change the thames name to the Danube"() {
+        when:
+        thamesRiver.name = "Danube"
+        then:
+        thamesRiver.name == "Danube"
+    }
+
+    /**
+     * 105 - Using a specification level field again.
+     */
+    def "The River Thames should be defaulted"() {
+        expect:
+        thamesRiver.name == "Thames"
+    }
+
+    /**
+     * 106 - This is a feature method that shows the expect block
+     */
+    def "2 should be larger than 1"() {
+        expect:
+        Math.max(1, 2)  ==  2
+    }
 
 }

@@ -1,21 +1,44 @@
 package com.spockgeb.tutorial.datafeed
 
+import com.spockgeb.tutorial.spock.DateService
 import spock.lang.Specification
+import spock.lang.Unroll
+
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 
 /**
  *
  */
 class InlinedDataFeedSpecification extends Specification {
 
-    def "maximum of two numbers"() {
-        expect:
-        Math.max(a, b) == c
+    def dateService = new DateService();
 
+    def "Validate Age Calculation From DOB"() {
+        when:
+        Date date = new SimpleDateFormat("dd-mm-yyyy", Locale.ENGLISH).parse(dob)
+        def calculatedAge = dateService.ageFromDOB(date)
+        then:
+        calculatedAge == age
         where:
-        a | b || c
-        3 | 7 || 7
-        5 | 4 || 5
-        9 | 9 || 9
+        dob          || age
+        "01-02-1980" || 33
+        "01-01-1990" || 23
+        "12-12-1958" || 55
+    }
+
+    @Unroll
+    def "Validate that #name's age (#age) is correct when their DOB is #dob"() {
+        when:
+        Date date = new SimpleDateFormat("dd-mm-yyyy", Locale.ENGLISH).parse(dob)
+        def calculatedAge = dateService.ageFromDOB(date)
+        then:
+        calculatedAge == age
+        where:
+        name       | dob          || age
+        "Ian"      | "01-02-1980" || 33
+        "Anna"     | "01-01-1990" || 23
+        "Carolina" | "12-12-1958" || 55
     }
 
 
