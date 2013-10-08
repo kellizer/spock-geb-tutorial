@@ -10,7 +10,7 @@ import spock.lang.Specification
 class ExtensionsSpecification extends Specification {
 
     @IgnoreIf({ System.getProperty("os.name").contains("windows") })
-    def "i'll run on all OS's except windows"() {
+    def "I'll run on all OS's except windows"() {
         expect:
         !System.getProperty("os.name").contains("windows")
     }

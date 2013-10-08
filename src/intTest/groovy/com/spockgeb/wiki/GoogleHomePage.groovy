@@ -1,4 +1,4 @@
-package com.spockgeb.tutorial.geb
+package com.spockgeb.wiki
 
 import geb.Page
 

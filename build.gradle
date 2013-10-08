@@ -1,4 +1,6 @@
 apply plugin: 'groovy'
+apply plugin: 'jetty'
+
 
 repositories
         {
@@ -34,6 +36,10 @@ dependencies
             drivers.each { driver ->
                 testCompile "org.seleniumhq.selenium:selenium-$driver-driver:$seleniumVersion"
             }
+
+            // Servlet Api
+            providedCompile "javax.servlet:javax.servlet-api:3.1.0"
+            compile "javax.servlet:jstl:1.2"
         }
 
 drivers.each { driver ->
@@ -43,9 +49,6 @@ drivers.each { driver ->
 
         systemProperty "geb.build.reportsDir", reporting.file("$name/geb")
         systemProperty "geb.env", driver
-
-        // If you wanted to set the baseUrl in your build…
-        // systemProperty "geb.build.baseUrl", "http://myapp.com"
     }
 }
 
@@ -55,8 +58,22 @@ test {
     enabled = false
 }
 
+jettyRunWar {
+    contextPath = '/'
+    httpPort = 9999
+}
 
 
+jettyRunWar.doFirst {
+    println ""
+    println "******************************************************"
+    println "You can access the app on your browser through the url"
+    println "  http://localhost:9999/login"
+    println ""
+    println "In order to stop the server, press Ctrl+C"
+    println "******************************************************"
+    println ""
+}
 
 sourceSets
         {
