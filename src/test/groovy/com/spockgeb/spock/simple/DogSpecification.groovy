@@ -9,7 +9,7 @@ class DogSpecification extends Specification {
         setup:
         def chip = new Dog()
         expect:
-        chip.speak() == 'Woof'
+        chip.speak() == 'Quack'
     }
 
 

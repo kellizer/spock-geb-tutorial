@@ -5,11 +5,11 @@ package com.spockgeb.tutorial.spock.customer;
  *
  * @author Ian Kelly
  */
-public class AirMilesProcessor {
+public class AirmilesProcessor {
 
     private CustomerRepository customerRepository;
 
-    public AirMilesProcessor(CustomerRepository customerRepository) {
+    public AirmilesProcessor(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 

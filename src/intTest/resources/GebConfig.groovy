@@ -12,7 +12,10 @@ import org.openqa.selenium.chrome.ChromeDriver
 waiting {
 	timeout = 2
 }
+
 reportsDir = "geb-reports"
+baseUrl="http://localhost:9999"
+
 environments {
 
 

@@ -4,7 +4,7 @@ import com.spockgeb.geb.GebReportingSpecWithPause
 import com.spockgeb.geb.wiki.page.GoogleHomePage
 import com.spockgeb.geb.wiki.page.GoogleResultsPage
 import com.spockgeb.geb.wiki.page.WikipediaPage
-import geb.spock.*
+
 
 class GoogleSpec extends GebReportingSpecWithPause {
 

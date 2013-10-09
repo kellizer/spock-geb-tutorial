@@ -1,6 +1,6 @@
 package com.spockgeb.spock.mocking
 
-import com.spockgeb.tutorial.spock.customer.AirMilesProcessor
+import com.spockgeb.tutorial.spock.customer.AirmilesProcessor
 import com.spockgeb.tutorial.spock.customer.Customer
 import com.spockgeb.tutorial.spock.customer.CustomerRepository
 import spock.lang.Specification
@@ -12,10 +12,10 @@ import spock.lang.Specification
 class ValidateAirMileProcessorSpecification extends Specification {
 
     CustomerRepository customerRepository = Mock()
-    AirMilesProcessor airMilesProcessor;
+    AirmilesProcessor airMilesProcessor;
 
     def setup() {
-        airMilesProcessor = new AirMilesProcessor(customerRepository)
+        airMilesProcessor = new AirmilesProcessor(customerRepository)
     }
 
     def "load customer and applying airmiles where customer doesn't exist"() {
