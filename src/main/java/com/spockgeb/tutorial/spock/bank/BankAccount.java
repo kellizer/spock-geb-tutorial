@@ -1,4 +1,4 @@
-package com.spockgeb.tutorial.spock;
+package com.spockgeb.tutorial.spock.bank;
 
 import com.spockgeb.tutorial.spock.bank.InsufficientFundsException;
 

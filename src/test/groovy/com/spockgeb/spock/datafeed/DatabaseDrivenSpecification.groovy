@@ -1,17 +1,16 @@
-package com.spockgeb.tutorial.datafeed
+package com.spockgeb.spock.datafeed
 
 import groovy.sql.Sql
 import spock.lang.Shared
 import spock.lang.Specification
 
 /**
- *
+ * Samples for the Spock/Geb Tutorials
+ * @author Ian Kelly
  */
 class DatabaseDrivenSpecification extends Specification {
 
-
-    @Shared
-            sql = Sql.newInstance("jdbc:h2:mem:", "org.h2.Driver")
+    @Shared sql = Sql.newInstance("jdbc:h2:mem:", "org.h2.Driver")
 
     // normally an external database would be used,
     // and the test data wouldn't have to be inserted here

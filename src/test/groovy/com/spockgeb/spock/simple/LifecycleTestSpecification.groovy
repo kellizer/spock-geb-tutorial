@@ -1,4 +1,4 @@
-package com.spockgeb.tutorial
+package com.spockgeb.spock.simple
 
 import com.spockgeb.tutorial.spock.River
 import spock.lang.Specification

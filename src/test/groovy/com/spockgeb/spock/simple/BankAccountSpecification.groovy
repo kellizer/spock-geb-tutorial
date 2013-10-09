@@ -1,6 +1,6 @@
-package com.spockgeb.tutorial
+package com.spockgeb.spock.simple
 
-import com.spockgeb.tutorial.spock.BankAccount
+import com.spockgeb.tutorial.spock.bank.BankAccount
 import com.spockgeb.tutorial.spock.bank.InsufficientFundsException
 import spock.lang.Specification
 

@@ -1,26 +1,15 @@
-package com.spockgeb.wiki
+package com.spockgeb.geb
 
-import geb.spock.*
+import geb.spock.GebReportingSpec
 
-class GoogleSpec extends GebReportingSpec {
+/**
+ * Samples for the Spock/Geb Tutorials
+ * @author Ian Kelly
+ */
+class GebReportingSpecWithPause extends GebReportingSpec {
 
-    def "the first link should be wikipedia"() {
-        when:
-        to GoogleHomePage
-        pause()
-        and:
-        q = "wikipedia"
-        then:
-        at GoogleResultsPage
-        and:
-        firstResultLink.text() == "Wikipedia"
-        when:
-        firstResultLink.click()
-        then:
-        waitFor { at WikipediaPage }
-    }
 
-    private void pause() {
+    def pause() {
         js.exec """
             (function() {
                 window.__gebPaused = true;

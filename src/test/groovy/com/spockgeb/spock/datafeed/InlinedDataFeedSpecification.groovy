@@ -1,10 +1,9 @@
-package com.spockgeb.tutorial.datafeed
+package com.spockgeb.spock.datafeed
 
 import com.spockgeb.tutorial.spock.DateService
 import spock.lang.Specification
 import spock.lang.Unroll
 
-import java.text.DateFormat
 import java.text.SimpleDateFormat
 
 /**
@@ -39,6 +38,7 @@ class InlinedDataFeedSpecification extends Specification {
         "Ian"      | "01-02-1980" || 33
         "Anna"     | "01-01-1990" || 23
         "Carolina" | "12-12-1958" || 55
+        "Jane"     | "01-04-1985" || 61
     }
 
 

@@ -1,4 +1,4 @@
-package com.spockgeb.tutorial
+package com.spockgeb.spock.extensions
 
 import spock.lang.Specification
 import spock.lang.Stepwise

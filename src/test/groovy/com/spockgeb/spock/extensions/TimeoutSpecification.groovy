@@ -1,4 +1,4 @@
-package com.spockgeb.tutorial
+package com.spockgeb.spock.extensions
 
 import com.spockgeb.tutorial.spock.customer.Customer
 import spock.lang.Specification

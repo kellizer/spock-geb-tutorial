@@ -1,4 +1,4 @@
-package com.spockgeb.tutorial
+package com.spockgeb.spock.mocking
 
 import com.spockgeb.tutorial.spock.customer.AirMilesProcessor
 import com.spockgeb.tutorial.spock.customer.Customer
