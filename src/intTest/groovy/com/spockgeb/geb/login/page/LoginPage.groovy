@@ -10,11 +10,11 @@ class LoginPage extends Page {
     static url = "/login.html"
     static at = { title == "Admin Login" }
     static content =
-            {
-                titleHeading {
-                    $("legend")
-                }
+        {
+            titleHeading {
+                $("legend")
             }
+        }
 
     void login(String username, String password) {
         $("input[name=username]").value(username)

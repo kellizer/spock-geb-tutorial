@@ -112,9 +112,10 @@ class BankAccountSpecification extends Specification {
         when: "test a number of deposits and withdrawals"
         bankAccountWithOutOverdraft.depositFunds(100)
         bankAccountWithOutOverdraft.withdrawAmount(100)
-        then:
+
+        then: "The account should be zero and no exception thrown"
         notThrown(InsufficientFundsException)
-        bankAccount.balance == 1
+        bankAccount.balance == 0
     }
 
     def "Check that Customer can have a balance of total plus 1"() {
