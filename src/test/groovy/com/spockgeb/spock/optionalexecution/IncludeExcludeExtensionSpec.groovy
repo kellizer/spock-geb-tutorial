@@ -13,7 +13,7 @@ import java.lang.annotation.Target
  */
 class IncludeExcludeExtensionSpec extends Specification {
     static {
-//        System.setProperty "spock.configuration", "IncludeFastConfig.groovy"
+        //System.setProperty "spock.configuration", "IncludeFastConfig.groovy"
 
         // Alternatively, try this:
         System.setProperty "spock.configuration", "ExcludeSlowConfig.groovy"
@@ -32,9 +32,6 @@ class IncludeExcludeExtensionSpec extends Specification {
     def "a neither fast nor slow method"() {
         expect: true
     }
-
-
-
 
 }
 

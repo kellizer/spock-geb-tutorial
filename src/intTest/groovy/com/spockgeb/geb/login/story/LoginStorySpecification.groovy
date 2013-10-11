@@ -30,7 +30,20 @@ class LoginStorySpecification extends GebReportingSpecWithPause {
         when:
         $("button").click()
         then:
-        title == "Logged In"
+        title == "Authenticated User"
+    }
+
+    /**
+     * set control values based simply on its name, controls being input,select,textarea
+     */
+  def "quickly set form values"() {
+        given:
+        go "/login.html"
+        when:
+        username = "Ian"
+        pause()
+        then:
+        username=='Ian' //same for reading..
     }
 
     def "Login with an in-correct password"() {
