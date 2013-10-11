@@ -11,8 +11,8 @@ import spock.lang.Stepwise
 class StepwiseSpecification extends Specification {
 
     def "step 1"() {
+        println(System.getProperty("os.name"))
         expect: false
-        println("step 1")
     }
 
     def "step 2"() {

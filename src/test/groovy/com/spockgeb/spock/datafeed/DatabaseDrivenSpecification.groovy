@@ -3,6 +3,7 @@ package com.spockgeb.spock.datafeed
 import groovy.sql.Sql
 import spock.lang.Shared
 import spock.lang.Specification
+import spock.lang.Unroll
 
 /**
  * Samples for the Spock/Geb Tutorials
@@ -20,7 +21,7 @@ class DatabaseDrivenSpecification extends Specification {
     }
 
 
-    def "maximum of two numbers"() {
+    def "maximum of two numbers, a=#a, b=#b so max would be #c"() {
         expect:
         Math.max(a, b) == c
 

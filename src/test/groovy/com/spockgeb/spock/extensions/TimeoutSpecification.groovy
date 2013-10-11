@@ -31,6 +31,9 @@ class TimeoutSpecification extends Specification {
         }
     }
 
+    /**
+     * shows the timeout for 5 second - also shows the post ini setters.
+     */
     @Timeout(value = 5)
     def "timeout feature method if not completed after 5 seconds"() {
         def person = new Customer(name: "Fred", age: 22)

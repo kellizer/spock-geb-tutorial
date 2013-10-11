@@ -15,6 +15,7 @@ class BankAccountSpecification extends Specification {
 
     /**
      * Fixture Method that runs before EVERY feature method
+     *example of specification setup
      */
     def setup() {
         //setup the fields to be used in this test.
@@ -23,6 +24,7 @@ class BankAccountSpecification extends Specification {
 
     /**
      * 201 - Feature method validating the setup of the account.
+     * example of EXPECT
      */
     def "New Customers with welcome balance should have a welcome 10 zł balance in their account"() {
         expect:
@@ -41,6 +43,7 @@ class BankAccountSpecification extends Specification {
 
     /**
      * 203 - Feature Method
+     * example of AND
      */
     def "Check that bank account accept the correct multi deposits and withdrawals"() {
         given:
@@ -58,6 +61,7 @@ class BankAccountSpecification extends Specification {
     }
 
     /**
+     * Example of OLD
      * 203 - Feature Method
      */
     def bankAccount = new BankAccount()
@@ -72,6 +76,7 @@ class BankAccountSpecification extends Specification {
 
     /**
      *  204 - Feature Method
+     *  example of AND
      */
     def "Check that Authorised Overdrafts work as expected"() {
         setup:
@@ -105,6 +110,7 @@ class BankAccountSpecification extends Specification {
 
     /**
      *  - Feature Method
+     *  notThrown example
      */
     def "Check that Customer can have a zero balance"() {
         setup:
@@ -124,7 +130,7 @@ class BankAccountSpecification extends Specification {
         when:
         bankAccountWithOutOverdraft.depositFunds(100)
         then:
-        assert bankAccount.balance == 101, "the bank account total should be 101"
+        assert bankAccountWithOutOverdraft.balance == 100, "the bank account total should be 100"
     }
 
 

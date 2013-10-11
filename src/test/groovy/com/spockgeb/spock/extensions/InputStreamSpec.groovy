@@ -9,7 +9,7 @@ import spock.lang.Specification
  */
 class InputStreamSpec extends Specification {
 
-    @AutoCleanup
+    @AutoCleanup(quiet = true)
     def input = new FileInputStream("myfile.txt")
 
     def "some input stream tests"() {

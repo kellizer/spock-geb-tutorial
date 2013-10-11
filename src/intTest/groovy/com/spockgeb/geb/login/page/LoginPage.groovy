@@ -7,7 +7,9 @@ import geb.Page
  */
 class LoginPage extends Page {
 
+    //relative url
     static url = "/login.html"
+    //implicit assertion
     static at = { title == "Admin Login" }
     static content =
         {

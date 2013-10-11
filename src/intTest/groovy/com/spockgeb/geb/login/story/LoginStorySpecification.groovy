@@ -33,7 +33,7 @@ class LoginStorySpecification extends GebReportingSpecWithPause {
         title == "Logged In"
     }
 
-    def "Login with an in-  correct password"() {
+    def "Login with an in-correct password"() {
         given:
         go "/login.html"
         $("form").with {
