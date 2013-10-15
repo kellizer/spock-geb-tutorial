@@ -15,7 +15,7 @@ class BankAccountSpecification extends Specification {
 
     /**
      * Fixture Method that runs before EVERY feature method
-     *example of specification setup
+     * example of specification setup
      */
     def setup() {
         //setup the fields to be used in this test.
@@ -23,7 +23,7 @@ class BankAccountSpecification extends Specification {
     }
 
     /**
-     * 201 - Feature method validating the setup of the account.
+     *  Feature method validating the setup of the account.
      * example of EXPECT
      */
     def "New Customers with welcome balance should have a welcome 10 zł balance in their account"() {
@@ -32,7 +32,7 @@ class BankAccountSpecification extends Specification {
     }
 
     /**
-     *  202  - Feature Method
+     *  Feature Method
      */
     def "Check that bank account with welcome balance accepts the correct deposit rate"() {
         when:
@@ -42,8 +42,8 @@ class BankAccountSpecification extends Specification {
     }
 
     /**
-     * 203 - Feature Method
-     * example of AND
+     * Feature Method
+     * example of AND and block labels
      */
     def "Check that bank account accept the correct multi deposits and withdrawals"() {
         given:
@@ -61,8 +61,24 @@ class BankAccountSpecification extends Specification {
     }
 
     /**
+     *  - Feature Method
+     *  implicit assert example
+     */
+    def "Check that Customer can have a zero balance"() {
+        setup:
+        def bankAccountWithOutOverdraft = new BankAccount()
+        when: "test a number of deposits and withdrawals"
+        bankAccountWithOutOverdraft.depositFunds(100)
+        bankAccountWithOutOverdraft.withdrawAmount(100)
+        then: "The account should be zero and no exception thrown"
+        bankAccount
+        bankAccount.isActiveAccount()
+        bankAccount.balance == 0
+    }
+
+    /**
      * Example of OLD
-     * 203 - Feature Method
+     *  Feature Method
      */
     def bankAccount = new BankAccount()
 
@@ -75,28 +91,8 @@ class BankAccountSpecification extends Specification {
     }
 
     /**
-     *  204 - Feature Method
-     *  example of AND
-     */
-    def "Check that Authorised Overdrafts work as expected"() {
-        setup:
-        def bankAccountWithOverdraft = new BankAccount()
-        bankAccountWithOverdraft.setAllowedOverDraft(500)
-        when: "test a number of deposits and withdrawals"
-        bankAccountWithOverdraft.depositFunds(100)
-        and: "Note the and label"
-        bankAccountWithOverdraft.withdrawAmount(50)
-        and: "Balance should be 50 at this point"
-        bankAccountWithOverdraft.withdrawAmount(30)
-        and: "Balance should be 20 at this point"
-        bankAccountWithOverdraft.withdrawAmount(100)
-        then: "We should now be left with a balance of 80 overdrawn"
-        bankAccountWithOverdraft.isInOverdraft()
-        bankAccountWithOverdraft.balance == -80
-    }
-
-    /**
      *  - Feature Method
+     *  Example of Thrown
      */
     def "Check that Customer cannot go over their allowed amount"() {
         setup:
@@ -112,7 +108,7 @@ class BankAccountSpecification extends Specification {
      *  - Feature Method
      *  notThrown example
      */
-    def "Check that Customer can have a zero balance"() {
+    def "Check that Customer can have a zero balance and Insufficient Funds Exc. is not thrown"() {
         setup:
         def bankAccountWithOutOverdraft = new BankAccount()
         when: "test a number of deposits and withdrawals"
@@ -124,6 +120,9 @@ class BankAccountSpecification extends Specification {
         bankAccount.balance == 0
     }
 
+    /**
+     * Power Assert
+     */
     def "Check that Customer can have a balance of total plus 1"() {
         setup:
         def bankAccountWithOutOverdraft = new BankAccount()
@@ -131,6 +130,23 @@ class BankAccountSpecification extends Specification {
         bankAccountWithOutOverdraft.depositFunds(100)
         then:
         assert bankAccountWithOutOverdraft.balance == 100, "the bank account total should be 100"
+    }
+
+    /**
+     *  - Feature Method
+     *  reading the exception.
+     */
+    def "Check that Customer cannot have a negative balance"() {
+        setup:
+        def bankAccountWithOutOverdraft = new BankAccount()
+        when: "test a number of deposits and withdrawals"
+        bankAccountWithOutOverdraft.depositFunds(100)
+        bankAccountWithOutOverdraft.withdrawAmount(150)
+
+        then: "The account should be zero and no exception thrown"
+        InsufficientFundsException insufficientFundsException = thrown();
+        insufficientFundsException.overDrawnBy == 50
+        bankAccountWithOutOverdraft.balance == 100
     }
 
 

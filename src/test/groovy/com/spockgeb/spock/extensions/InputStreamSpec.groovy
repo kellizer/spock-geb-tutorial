@@ -13,7 +13,7 @@ class InputStreamSpec extends Specification {
     def input = new FileInputStream("myfile.txt")
 
     def "some input stream tests"() {
-        // …
+        // test uses file input stream
     }
 
 }

@@ -1,4 +1,4 @@
-package com.spockgeb.spock.optionalexecution
+package com.spockgeb.spock.extensions
 
 import spock.lang.Specification
 
@@ -13,10 +13,10 @@ import java.lang.annotation.Target
  */
 class IncludeExcludeExtensionSpec extends Specification {
     static {
-        //System.setProperty "spock.configuration", "IncludeFastConfig.groovy"
+        System.setProperty "spock.configuration", "IncludeFastConfig.groovy"
 
         // Alternatively, try this:
-        System.setProperty "spock.configuration", "ExcludeSlowConfig.groovy"
+        //System.setProperty "spock.configuration", "ExcludeSlowConfig.groovy"
     }
 
     @Fast

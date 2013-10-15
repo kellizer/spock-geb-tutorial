@@ -71,7 +71,16 @@ class LifecycleTestSpecification extends Specification {
      */
     def "2 should be larger than 1"() {
         expect:
-        Math.max(1, 2)  ==  2
+        Math.max(1, 2) == 2
     }
+
+    def "Test with a tmp file"() {
+        setup:
+        def file = new File("/new/file/tmp.out")
+        //Do stuff with the FS file
+        cleanup:
+        file.delete()
+    }
+
 
 }

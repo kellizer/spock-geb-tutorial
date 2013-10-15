@@ -7,9 +7,9 @@ import com.spockgeb.tutorial.spock.bank.InsufficientFundsException;
  */
 public class BankAccount {
 
-    public double balance; //all account start of with a balance of zero
-    public double allowedOverDraft;//all accounts have a zero value overdraft.
-
+    private double balance; //all account start of with a balance of zero
+    private double allowedOverDraft;//all accounts have a zero value overdraft.
+    private boolean isActiveAccount=true;
 
     /**
      * Customers can deposit funds into their accounts.
@@ -47,9 +47,18 @@ public class BankAccount {
 
     /**
      * Returns the current balance of this account.
+     *
      * @return - the current balance
      */
     public double getBalance() {
         return balance;
+    }
+
+    public boolean isActiveAccount() {
+        return isActiveAccount;
+    }
+
+    public void setActiveAccount(boolean activeAccount) {
+        isActiveAccount = activeAccount;
     }
 }

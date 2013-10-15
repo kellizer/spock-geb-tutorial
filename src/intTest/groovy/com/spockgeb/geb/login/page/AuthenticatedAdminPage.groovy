@@ -10,11 +10,6 @@ class AuthenticatedAdminPage extends Page {
     static at = { title == "Authenticated User" }
     static content =
             {
-                //optional content
-                administratorsName(required: false)
-                        {
-                            $("h2")
-                        }
                 //stacked
                 users(wait: true) { $("li.span5.clearfix") }
                 user { i -> users[i] }

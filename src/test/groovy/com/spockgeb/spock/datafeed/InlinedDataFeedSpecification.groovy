@@ -20,13 +20,11 @@ class InlinedDataFeedSpecification extends Specification {
         then:
         calculatedAge == age
         where:
-        dob          || age
-        "01-02-1980" || 33
-        "01-01-1990" || 23
-        "12-12-1958" || 55
+        dob <<["01-02-1980", "01-01-1990","12-12-1958"]
+        age << [33, 23, 55]
     }
 
-    @Unroll
+    //@Unroll
     def "Validate that #name's age (#age) is correct when their DOB is #dob"() {
         when:
         Date date = new SimpleDateFormat("dd-mm-yyyy", Locale.ENGLISH).parse(dob)
@@ -40,6 +38,7 @@ class InlinedDataFeedSpecification extends Specification {
         "Carolina" | "12-12-1958" || 55
         "Jane"     | "01-04-1985" || 61
     }
+
 
 
 }

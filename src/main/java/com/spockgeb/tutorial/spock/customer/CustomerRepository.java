@@ -15,6 +15,8 @@ public interface CustomerRepository {
      */
     Customer findById(long id);
 
+    long currentBalance(long id);
+
     void save(Customer customer);
 
 

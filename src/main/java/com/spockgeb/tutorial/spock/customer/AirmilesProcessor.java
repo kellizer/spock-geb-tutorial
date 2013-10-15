@@ -19,4 +19,8 @@ public class AirmilesProcessor {
             throw new IllegalStateException("customer must be valid");
         customer.addAirMiles(miles);
     }
+
+    public long readAirMilesTotalForCustomer(long customerId) {
+        return customerRepository.currentBalance(customerId);
+    }
 }
